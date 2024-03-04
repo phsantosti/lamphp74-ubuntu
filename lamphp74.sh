@@ -24,6 +24,12 @@ sudo apt-get install -y mariadb-server
 # Definindo senha do root user do MariaDB
 sudo mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '36630013152478963';"
 
+# Permitindo acesso remoto ao MariaDB
+sudo sed -i 's/^bind-address\s*=.*$/bind-address = 0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
+
+# Reiniciando o serviço do MariaDB
+sudo systemctl restart mariadb
+
 # Criando usuário com acesso total no banco de dados
 sudo mysql -u root -p36630013152478963 -e "CREATE USER 'rootApplication'@'%' IDENTIFIED BY '36630013152478963';"
 sudo mysql -u root -p36630013152478963 -e "GRANT ALL PRIVILEGES ON *.* TO 'rootApplication'@'%' WITH GRANT OPTION;"
