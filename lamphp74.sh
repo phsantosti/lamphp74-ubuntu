@@ -54,6 +54,7 @@ sudo apt-get install -y php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4
 sudo apt-get remove certbot
 
 # Instalação do Certbot via Snap
+sudo apt install snapd
 sudo snap install --classic certbot
 
 # Criando um link simbólico para o Certbot
